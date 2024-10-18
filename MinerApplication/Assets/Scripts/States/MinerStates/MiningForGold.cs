@@ -37,23 +37,23 @@ public class MiningForGold : State
         // You will have to create a new class that inherits from "State" to achieve this (you can call this class "BankingGold")
         // Be sure to cout information at all stages so you can see how it is functioning
 
-        //if (miner.IsAtMaxCapacity())
-        //{
-        //    miner.ChangeState(new BankingGold());
-        //}
+        if (miner.IsAtMaxCapacity())
+        {
+            miner.ChangeState(new BankingGold());
+        }
 
-        ////	How many other states can you add? Try adding variables like "Tiredness" and "Thirstiness" to the Miner, and make the
-        ////  the miner change to other states based on those values
-        ////	e.g. if (miner.m_Tiredness > 10) miner.ChangeState(new GoHomeAndSleep());
+        //	How many other states can you add? Try adding variables like "Tiredness" and "Thirstiness" to the Miner, and make the
+        //  the miner change to other states based on those values
+        //	e.g. if (miner.m_Tiredness > 10) miner.ChangeState(new GoHomeAndSleep());
 
-        //if (miner.IsTired())
-        //{
-        //    miner.ChangeState(new GoHomeAndSleep());
-        //}
+        if (miner.IsTired())
+        {
+            miner.ChangeState(new GoHomeAndSleep());
+        }
 
-        //if (miner.IsThirsty())
-        //{
-        //    miner.ChangeState(new HaveADrink());
-        //}
+        if (miner.IsThirsty())
+        {
+            miner.ChangeState(new HaveADrink());
+        }
     }
 }

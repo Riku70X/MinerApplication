@@ -16,8 +16,14 @@ public class Miner : Worker
     private readonly int maxTiredness;
     private readonly int maxThirst;
 
+    //These functions tell us about the data in the mutables
+    public bool IsAtMaxCapacity() { return m_Gold >= maxGoldStorage; }
+    public bool IsTired() { return m_Tiredness > maxTiredness; }
+	public bool IsThirsty() { return m_Thirst > maxThirst; }
+
     public Miner()
     {
+        //Set the intial state as MiningForGold
         pState = new MiningForGold();
 
         m_Gold = 0;
@@ -37,8 +43,8 @@ public class Miner : Worker
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        
+        base.Update();
     }
 }
