@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class Miner : Worker
 {
-    //public members
+    //public:
+
     //These values can be monitored and edited by our "states"
     public int m_Gold;
     public int m_BankedGold;
     public int m_Tiredness;
     public int m_Thirst;
-
-    //These values cannot change at runtime
-    private readonly int maxGoldStorage;
-    private readonly int maxTiredness;
-    private readonly int maxThirst;
 
     //These functions tell us about the data in the mutables
     public bool IsAtMaxCapacity() { return m_Gold >= maxGoldStorage; }
@@ -36,15 +32,10 @@ public class Miner : Worker
         maxThirst = 7;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //private:
 
-    // Update is called once per frame
-    protected override void Update()
-    {
-        base.Update();
-    }
+    //These values cannot change at runtime
+    private readonly int maxGoldStorage;
+    private readonly int maxTiredness;
+    private readonly int maxThirst;
 }

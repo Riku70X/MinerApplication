@@ -5,20 +5,6 @@ using UnityEngine;
 
 public class SniffOutGold : State
 {
-    bool FoundGold() { return Random.Range(0, 5) == 0; }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override void Execute(Worker worker)
     {
         MinersDog minersDog = (MinersDog)worker;
@@ -41,4 +27,7 @@ public class SniffOutGold : State
             minersDog.ChangeState(new RunAround());
         }
     }
+
+    bool FoundGold() { return Random.Range(0, 5) == 0; }
+
 }
