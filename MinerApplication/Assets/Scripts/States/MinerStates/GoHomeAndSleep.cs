@@ -10,15 +10,15 @@ public class GoHomeAndSleep : State
 
         if (miner == null) { return; }
 
-        //Print out information on what it is doing...
+        // Print out information on what it is doing...
         Debug.Log("Sleeping...");
 
-        //Decrease tiredness
+        // Decrease tiredness
         miner.m_Tiredness -= 2;
 
-        if (miner.m_Tiredness <= 0)
-        {
-            miner.ChangeState(new MiningForGold());
-        }
+        //if (miner.m_Tiredness <= 0)
+        //{
+        //    miner.ChangeState(new MiningForGold());
+        //}
     }
 }

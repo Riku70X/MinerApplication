@@ -10,16 +10,13 @@ public class HaveADrink : State
 
         if (miner == null) { return; }
 
-        //Print out information on what it is doing...
+        // Print out information on what it is doing...
         Debug.Log("Having a drink.");
 
-        //Drink water
+        // Drink water
         miner.m_Thirst -= 5;
 
-        //Short trip to the water fountain
+        // Short trip to the water fountain
         miner.m_Tiredness += 2;
-
-        //Return to mining
-        miner.ChangeState(new MiningForGold());
     }
 }

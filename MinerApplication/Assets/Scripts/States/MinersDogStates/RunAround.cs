@@ -10,15 +10,15 @@ public class RunAround : State
 
         if (minersDog == null) { return; }
 
-        //Print out information on what it is doing...
+        // Print out information on what it is doing...
         Debug.Log("Running around!");
 
-        //Decrease the miner's dog's boredom
+        // Decrease the miner's dog's boredom
         minersDog.m_Boredom -= 2;
 
-        if (minersDog.m_Boredom <= 0)
-        {
-            minersDog.ChangeState(new SniffOutGold());
-        }
+        //if (minersDog.m_Boredom <= 0)
+        //{
+        //    minersDog.ChangeState(new SniffOutGold());
+        //}
     }
 }

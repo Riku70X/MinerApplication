@@ -6,15 +6,12 @@ public class MinersDog : Worker
 {
     //public:
 
-    //These values can be monitored and edited by our "states"
+    // These values can be monitored and edited by our "states"
     public int m_Boredom;
-
-    //These functions tell us about the data in the mutables
-    public bool IsBored() { return m_Boredom > maxBoredom; }
 
     public MinersDog()
     {
-        //Set the initial state as SniffOutGold
+        // Set the initial state as SniffOutGold
         pState = new SniffOutGold();
 
         m_Boredom = 0;
@@ -22,8 +19,33 @@ public class MinersDog : Worker
         maxBoredom = 8;
     }
 
+    //protected:
+
+    protected override void ChooseState()
+    {
+        if (IsBored())
+        {
+            ChangeState(new RunAround());
+            return;
+        }
+
+        if (FoundGold())
+        {
+            ChangeState(new Bark());
+            return;
+        }
+
+        ChangeState(new SniffOutGold());
+    }
+
     //private:
 
-    //These values cannot change at runtime
+    // These functions tell us about the data in the mutables
+    private bool IsBored() { return m_Boredom > maxBoredom; }
+
+    // These values cannot change at runtime
     private readonly int maxBoredom;
+
+    //TODO: Specific to the SniffOutGold state... should this be here?
+    private bool FoundGold() { return Random.Range(0, 5) == 0; }
 }

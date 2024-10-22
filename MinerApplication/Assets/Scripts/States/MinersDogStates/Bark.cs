@@ -10,15 +10,10 @@ public class Bark : State
 
         if (minersDog == null) { return; }
 
-        //Print out information on what it is doing...
+        // Print out information on what it is doing...
         Debug.Log("Barking!");
 
-        //Increment the miner's dog's boredom
+        // Increment the miner's dog's boredom
         minersDog.m_Boredom++;
-
-        if (minersDog.IsBored())
-        {
-            minersDog.ChangeState(new RunAround());
-        }
     }
 }

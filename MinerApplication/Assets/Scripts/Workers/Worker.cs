@@ -5,31 +5,41 @@ using UnityEngine;
 
 public abstract class Worker : MonoBehaviour
 {    
-    //public:
+    //protected:
 
-    public void ChangeState(State newState)
+    // State Machine
+    protected abstract void ChooseState();
+
+    protected void ChangeState(State newState)
     {
         pState = newState;
     }
 
-    //protected:
-
-    //Our state
+    // Our state
     protected State pState;
 
     //private:
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         StartCoroutine(DelayedUpdate());
     }
 
-    IEnumerator DelayedUpdate()
+    private IEnumerator DelayedUpdate()
     {
         while (true)
         {
+            ChooseState();
+
             pState.Execute(this);
+
+            Debug.Log(pState.GetType());
+
+            if (pState.Equals(new MiningForGold()))
+            {
+                Debug.Log("TRUE");
+            }
 
             yield return new WaitForSeconds(2.0f);
         }
