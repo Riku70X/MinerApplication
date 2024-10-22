@@ -10,12 +10,12 @@ public class BankingGold : State
 
         if (miner == null) { return; }
 
-        //Print out information on what it is doing...
-        Debug.Log("Banking gold!");
-
         //Move gold to the bank
         miner.m_BankedGold += miner.m_Gold;
         miner.m_Gold = 0;
+
+        //Print out information on what it is doing...
+        Debug.Log("Banking gold! Current balance: " + miner.m_BankedGold + " gold.");
 
         //Long trip to the bank
         miner.m_Tiredness += 3;
