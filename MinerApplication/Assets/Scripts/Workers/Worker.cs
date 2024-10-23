@@ -20,26 +20,18 @@ public abstract class Worker : MonoBehaviour
 
     //private:
 
-    // Start is called before the first frame update
     private void Start()
     {
-        StartCoroutine(DelayedUpdate());
+        StartCoroutine(UpdateWithDelay());
     }
 
-    private IEnumerator DelayedUpdate()
+    private IEnumerator UpdateWithDelay()
     {
         while (true)
         {
             ChooseState();
 
             pState.Execute(this);
-
-            Debug.Log(pState.GetType());
-
-            if (pState.Equals(new MiningForGold()))
-            {
-                Debug.Log("TRUE");
-            }
 
             yield return new WaitForSeconds(2.0f);
         }

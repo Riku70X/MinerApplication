@@ -15,10 +15,5 @@ public class GoHomeAndSleep : State
 
         // Decrease tiredness
         miner.m_Tiredness -= 2;
-
-        //if (miner.m_Tiredness <= 0)
-        //{
-        //    miner.ChangeState(new MiningForGold());
-        //}
     }
 }

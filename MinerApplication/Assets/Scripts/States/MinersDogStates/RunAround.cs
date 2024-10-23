@@ -15,10 +15,5 @@ public class RunAround : State
 
         // Decrease the miner's dog's boredom
         minersDog.m_Boredom -= 2;
-
-        //if (minersDog.m_Boredom <= 0)
-        //{
-        //    minersDog.ChangeState(new SniffOutGold());
-        //}
     }
 }

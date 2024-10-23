@@ -24,7 +24,7 @@ public class Miner : Worker
         m_Thirst = 0;
 
         maxGoldStorage = 5;
-        maxTiredness = 10;
+        maxTiredness = 15;
         maxThirst = 7;
     }
 
@@ -51,7 +51,7 @@ public class Miner : Worker
         }
 
         // If sleeping, stay sleeping until fully rested
-        if (pState == new GoHomeAndSleep())
+        if (pState is GoHomeAndSleep)
         {
             if (m_Tiredness <= 0)
             {

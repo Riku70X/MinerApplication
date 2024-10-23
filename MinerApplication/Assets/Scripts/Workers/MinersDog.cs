@@ -29,12 +29,24 @@ public class MinersDog : Worker
             return;
         }
 
-        if (FoundGold())
+        if (pState is SniffOutGold && FoundGold())
         {
             ChangeState(new Bark());
             return;
         }
 
+        // If running around, keep running around until no longer bored
+        if (pState is RunAround)
+        {
+            if (m_Boredom <= 0)
+            {
+                ChangeState(new SniffOutGold());
+            }
+
+            return;
+        }
+
+        // Default state
         ChangeState(new SniffOutGold());
     }
 
